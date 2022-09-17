@@ -42,4 +42,5 @@ Controller <=> handle the request <= service
 
 - @Body를 통해 body 값을 가져옵니다.
 - @Body()를 사용하면 모든 request에서 보내온 값을 가져올 수 있습니다.
-- 하나씩 가져오려면 @Body('title') title:string, @Body('description') description:string,
+- 하나씩 가져오려면 아래와 같이 가져오면 됩니다.
+  - @Body('title') title:string, @Body('description') description:string,
