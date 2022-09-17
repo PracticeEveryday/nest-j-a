@@ -1,5 +1,5 @@
 import { Board } from './board.model';
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 
 // 이 안엔 endpoint가 들어간다!
@@ -10,6 +10,14 @@ export class BoardsController {
   @Get('/')
   getAllBoard(): Board[] {
     return this.boardsService.getAllBoards();
+  }
+
+  @Post('/')
+  createBoard(
+    @Body('title') title: string,
+    @Body('description') description: string,
+  ): Board {
+    return this.boardsService.createBoard(title, description);
   }
 }
 
