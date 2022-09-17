@@ -79,3 +79,5 @@ Controller <=> handle the request <= service
 - 한개 가져올 때는 @Param("endpoint와 같은 이름" endpoint와 같은 이름: Type)
 
 #### 특정 ID로 게시물 지우기
+
+#### 특정 게시물의 상태 업데이트
