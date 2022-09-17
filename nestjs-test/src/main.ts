@@ -1,3 +1,4 @@
+// 시작점
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
