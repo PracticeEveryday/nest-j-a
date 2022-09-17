@@ -37,8 +37,10 @@ export class BoardsService {
   }
 
   deleteBoard(id: string): void {
+    const found = this.getBoardById(id);
     // filter 같지 않은 건 버리기! 같지 않은 건 필터 해라
-    this.boards = this.boards.filter((board) => board.id !== id);
+    // 찾았으면 찾은 게시물의 ID를 지워라!
+    this.boards = this.boards.filter((board) => board.id !== found.id);
   }
 
   updateBoardStatus(id: string, status: BoardStatus): Board {
