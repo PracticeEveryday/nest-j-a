@@ -88,10 +88,3 @@ bootstrap()
 class-validator, class-transformer => pipe 역할이 이 두개임!!
 npm install class-validator class-transformer --save
 ```
-
-#### 특정 게시물을 찾을 때 없는 경우 결과값 처리
-
-- 현재 특정 게시물을 ID로 가져올 때 없는 경우는 에러를 처리해 주지 않고 있습니다.
-- 이 케이스에 대해 없으면 없다고 내용을 넣어 클라이언트에 보내주겠습니다.
-
-- 에러를 표출해주기 위해선 NotFountException()이라는 예외 인스턴스를 사용해 주면 됩니다.
