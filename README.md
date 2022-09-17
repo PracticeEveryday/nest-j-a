@@ -48,3 +48,24 @@ nest new nestjs-test ( 프로젝트 이름 )
 ###### Board Service를 Board Controller에서 이용할 수 있게 해주기 ( Dependency Injection )
 
 - Nest JS에서 Dependency Injection은 클래스의 Constructor 안에서 이루어 짐.
+
+#### Provider 란?
+
+- 프로바이더는 Nest의 기본 개념으로 대부분의 기본 Nest 클래스는 서비스, 레포지토리, 팩토리, 헬퍼 등 프로바이더로 취급될 수 있습니다.
+- 프로바이더의 주요 아이디어는 종속성으로 주입할 수 있다는 것입니다.
+- 즉, 객체는 서로 다양한 관계를 만들 수 있으며 객체의 인스턴스를 연결하는 기능은 대부분 Nest 런타임 시스템에 위임 될 수 있습니다.
+
+#### Service 란?
+
+- 서비스는 소프트웨어 개발 내의 공통 개념이며, Nest, Js에서만 쓰이지 않습니다.
+- @Injectable// 주입 가능한 // 데코레이터로 감싸져 모듈에 제공되며, 이 서비스 인스턴스는 App 전체에서 사용될 수 있습니다.
+- 서비스는 컨트롤러에서 데이터의 유효성 체크를 하거나 DB에 아이템을 생성하는 등의 작업을 하는 부분을 처리합니다.
+
+#### Service를 Controller에 종속성 주입 하는 방법
+
+- BoardsService를 타입으로 정의한 프로퍼티를 사용합니다.
+
+##### Provider 등록하기
+
+- Provider를 사용하기 위해 Nest에 등록을 해야 합니다.
+- module 파일에서 등록이 가능하며 module파일 내에 Providers 항목 안에 해당 모듈에서 사용하고자 하는 Provider( 서비스 )를 넣어주면 됩니다.
