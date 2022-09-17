@@ -52,6 +52,29 @@ npm install pg typeorm @nestjs/typeorm --save
 
 ```
 
-#### TypeORM 애플리케이션에 연결하기
+#### Entity를 생성해야 하는 이유
 
-- typeORM 설정 파일 생성
+- ORM없이 데이터베이스 테이블을 생성하는 케이스
+
+```
+CREATE TABLE board {
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+}
+```
+
+- 이런 식으로 테이블을 생성합니다.
+- 하지만 TypeORM은 DB Table로 변환되는 Class이기 때문에 위처럼 하지 않고 클래스를 생성한 후 그 안의 칼럼들을 정의해주시면 됩니다.
+
+- @Entity()
+
+  - Entity() 데코레이터 클래스는 Board 클래스가 엔티티임을 나타냅니다.
+  - CREATE TABLE board 부분입니다.
+
+- @PrimaryGeneratedColumn()
+
+  - PrimryGeneratedColumn() 데코레이터는 id열이 Board 엔터티의 기본키 필드임을 나타내는데 사용됩니다.
+
+- @Column()
+  - Column() 데코레이터 클래스는 Board 엔터티의 title 및 description과 같은 다른 열을 나타내는 데 사용됩니다.
