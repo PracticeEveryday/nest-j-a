@@ -78,3 +78,10 @@ CREATE TABLE board {
 
 - @Column()
   - Column() 데코레이터 클래스는 Board 엔터티의 title 및 description과 같은 다른 열을 나타내는 데 사용됩니다.
+
+#### Repository 생성하기
+
+- Repository란 엔티티 개체와 함께 작동하며 엔티티 찾기, 삽입, 업데이트, 삭제 등을 처리합니다.
+- DB에 관련된 일은 서비스에서 하는 게 아닌 Repository에서 해주시면 됩니다.
+- 이것을 Repository Pattern 이라고도 부릅니다.
+- DB에 관련된 일 ( INSERT FIND DELETE 등등 )
