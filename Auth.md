@@ -35,3 +35,33 @@
   - jwt 모듈
 
 - npm install @nestjs/jwt @nestjs/passport passport passport-jwt --save
+
+#### passport
+
+- @types/passport-jwt
+  - passport-jwt 모듈을 위한 타입 정의 모듈
+
+##### 요청 안에 유저 정보( 유저 객체 )가 들어가게 하는 방법
+
+- validate 메소드에서 return 값을 user 객체로 주었습니다.
+- 하지만 user 객체가 들어있지 않았습니다
+
+- UseGuards
+- UseGuards안에 @nestjs/passport에서 가져온 AuthGuard()를 이용하면 요청 안에 유저 정보를 넣어줄 수 있습니다.
+
+##### NestJS에서의 Middleware
+
+- NestJS에서는 여러가지의 미들웨어가 있습니다.
+- Pipes, Filters, Guards, Interceptors 등 미들 웨어로 취급되는 것이 있는데 각각 다른 목적을 가지며 사용되고 있습니다.
+
+Pipes: 유효성 검사 및 페이로드 변환을 위해 만들어 짐. 데이터를 예상한대로 직렬화합니다.
+
+Filters: 필터는 오류 처리 미들 웨어입니다. 특정 오류 처리기를 사용할 경로와 각 경로 주변의 복잡성을 관리하는 방법을 알 수 있습니다.
+
+Guards: 인증 미들웨어입니다. 지정된 경로로 통과할 수 있는 사람과 허용되지 않는 사람을 서버에 알려줍니다.
+
+Interceptors: 인터셉터는 응답 매핑 및 캐시 관리와 함께 요청 로깅과 같은 전후 미들웨어입니다. 각 요청 전후에 이를 실행하는 기능은 매우 강력하고 유용합니다.
+
+##### 각각의 미들웨어가 불러지는 순서
+
+middleware -> guard -> interceptor ( before ) -> pipe -> controller -> service -> controller -> interceptor ( after ) -> filter ( if applicable ) -> client
