@@ -94,3 +94,10 @@ CREATE TABLE board {
   - 이 처리 시간을 다 끝나고 결과값을 받고 싶을 때 async/await을 주면 기다린다.
   - 만약 async/await이 없다면 처리다 되지 않은 상태에서 값을 받아버린다.
   - so async/await 쓰기!!
+
+##### remove vs delete
+
+- remove(): 무조건 존재하는 아이템을 메소드를 이용해서 지움 없으면 에러
+- delete(): 만약 아이템이 있으면 지우고 존재하지 않으면 아무런 영향 없음.
+
+=> remove를 이용하면 하나의 아이템을 지울 때 두 번 DB에 접근하기에 한번만 접근하는 delete 메소드를 사용하자!

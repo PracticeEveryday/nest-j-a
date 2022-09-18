@@ -50,6 +50,15 @@ export class BoardsService {
   //   return found;
   // }
 
+  async deleteBoard(id: number): Promise<void> {
+    const result = await this.boardRepository.delete(id);
+
+    if (result.affected === 0) {
+      throw new NotFoundException(`Can't find Board with id ${id}`);
+    }
+
+    console.log(result);
+  }
   // deleteBoard(id: string): void {
   //   const found = this.getBoardById(id);
   //   // filter 같지 않은 건 버리기! 같지 않은 건 필터 해라
