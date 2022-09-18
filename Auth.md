@@ -17,3 +17,21 @@
 #### 비밀번호 암호화하기
 
 - npm install bcryptjs --save
+
+#### JWT
+
+- JWT란 JSON web Token이란 당사자간에 정보를 JSON 객체로 안전하게 전송하기 위한 컴팩트하고 독립적인 방식을 정의하는 개방형 표준입니다.
+- 이 정보는 디지털 서명되며 신뢰할 수 있습니다.
+- 정보를 안전하게 전할 때 유저의 권한 같은 것을 체크 하기 위해 사용하는 유용한 모듈입니다.
+
+- @nestjs/jwt
+  - nestjs에서 jwt를 사용하기 위해 필요한 모듈
+- @nestjs/passport
+  - nestjs에서 passport를 사용하기 위해 필요한 모듈
+- passport
+  - passport 모듈
+- passport-jwt
+
+  - jwt 모듈
+
+- npm install @nestjs/jwt @nestjs/passport passport passport-jwt --save
