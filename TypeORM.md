@@ -85,3 +85,12 @@ CREATE TABLE board {
 - DB에 관련된 일은 서비스에서 하는 게 아닌 Repository에서 해주시면 됩니다.
 - 이것을 Repository Pattern 이라고도 부릅니다.
 - DB에 관련된 일 ( INSERT FIND DELETE 등등 )
+
+#### Service에서 getBoardById 메소드 생성하기
+
+- typeOrm에서 제공하는 findOne 메소드 사용하기
+- async await을 이용해 데이터베이스 작업이 끝난 후 결과값을 받을 수 있게 해주기
+  - 요청 후 바로 처리해주는 게 아니라 처리되는 시간이 있다.
+  - 이 처리 시간을 다 끝나고 결과값을 받고 싶을 때 async/await을 주면 기다린다.
+  - 만약 async/await이 없다면 처리다 되지 않은 상태에서 값을 받아버린다.
+  - so async/await 쓰기!!
