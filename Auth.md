@@ -71,3 +71,21 @@ middleware -> guard -> interceptor ( before ) -> pipe -> controller -> service -
 #### 인증된 유저만 게시물 보고 쓸 수 있게 하기
 
 - 인증에 관한 모듈을 board 모듈에서 쓸 수 있어야 되기에 board module에서 인증 모듈을 import 해야 함. ( 이렇게 되면 AuthModule에서 export하는 어떠한 것이든 board Moduel에서 사용 가능하게 됩니다. )
+
+#### 유저와 게시물의 관계 형성 해주기
+
+- 게시물을 생성 할 때도 어떤 유저가 생성해줬는지 정보를 같이 넣어주어야 합니다.
+- 유저와 게시물 관계 부분을 처리해 주겠습니다.
+
+##### 유저와 게시물 데이터의 관계 형성
+
+1. 관계를 형성하기 위해 엔티티에 서로 간의 필드를 넣어주어야 합니다.
+   User -> 게시물 1, 게시물 2, 게시물 3
+   OneToMany Relationship ManyToOne Relationship
+
+##### 파라미터
+
+Type: 보드의 타입을 정의
+보드에서 유저를 접근하기 위해서는 board.user! 명시
+eager: true => 유저 정보 가져올 때 보드를 가져 온다.
+eager: flase => 보드 정보 가져올 때 유저 안 가져 온다.
