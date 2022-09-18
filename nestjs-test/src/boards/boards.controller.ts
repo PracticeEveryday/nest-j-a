@@ -8,6 +8,7 @@ import {
   ParseIntPipe,
   Patch,
   Post,
+  UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -15,9 +16,11 @@ import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe';
 import { Board } from './board.entity';
+import { AuthGuard } from '@nestjs/passport';
 
 // 이 안엔 endpoint가 들어간다!
 @Controller('boards')
+@UseGuards(AuthGuard()) // 컨트롤러 단에서 데코레이터 하기에 모든 헨들러가 영향을 받음
 export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 

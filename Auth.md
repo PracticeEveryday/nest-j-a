@@ -67,3 +67,7 @@ Interceptors: 인터셉터는 응답 매핑 및 캐시 관리와 함께 요청 �
 middleware -> guard -> interceptor ( before ) -> pipe -> controller -> service -> controller -> interceptor ( after ) -> filter ( if applicable ) -> client
 
 #### 커스텀 데코레이터 만들기
+
+#### 인증된 유저만 게시물 보고 쓸 수 있게 하기
+
+- 인증에 관한 모듈을 board 모듈에서 쓸 수 있어야 되기에 board module에서 인증 모듈을 import 해야 함. ( 이렇게 되면 AuthModule에서 export하는 어떠한 것이든 board Moduel에서 사용 가능하게 됩니다. )
