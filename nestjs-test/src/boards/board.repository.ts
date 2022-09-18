@@ -1,3 +1,4 @@
+import { User } from 'src/auth/user.entity';
 import { CustomRepository } from 'src/db/typeorm-ex.decorator';
 import { Repository } from 'typeorm';
 import { BoardStatus } from './board-status.enum';
@@ -9,7 +10,10 @@ import { CreateBoardDto } from './dto/create-board.dto';
 // 사용자 지정 저장소는 일부 특정 엔터티를 관리하거나 일반 저장소 일 수 있습니다. => Board 엔터티를 컨르롤 한다는 뜻
 @CustomRepository(Board)
 export class BoardRepository extends Repository<Board> {
-  async createBoard(createBoardDto: CreateBoardDto): Promise<Board> {
+  async createBoard(
+    createBoardDto: CreateBoardDto,
+    user: User,
+  ): Promise<Board> {
     const { title, description } = createBoardDto;
 
     // 저장할 객체 생성
@@ -17,6 +21,7 @@ export class BoardRepository extends Repository<Board> {
       title,
       description,
       status: BoardStatus.PUBLIC,
+      user,
     });
 
     await this.save(board);
