@@ -1,0 +1,12 @@
+# 기본 설정 ( 개발 환경이나 운영 환경 설정에서도 적용 됨 )
+
+server:
+  port: 3000
+
+db:
+  type: 'postgres'
+  port: 5432
+  database: 'board-app'
+
+jwt:
+  expriesIn: 3600

@@ -1,0 +1,11 @@
+# default.yaml 환경에서 설정한 것 + 개발 환경에서 필요한 정보
+
+db:
+  host: 'localhost'
+  username: 'postgres'
+  password: 'postgres_password'
+  synchronize: true
+  # 엔티티에 컬럼을 추가로 정의할 때 시작할 때마다 새롭게 엔티티를 보고 바로 생성해 줌.
+
+jwt:
+  secret: 'Secret1234'
